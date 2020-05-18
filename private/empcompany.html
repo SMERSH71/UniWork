@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="http://localhost:3000">
+  <title>UniWork | Company</title>
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <script src="/js/vue.js"></script>
+  <script src="/js/vue-router.js"></script>
+  <script src="/js/jquery-3.4.1.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+
+  <div class="d-flex justify-content-center align-items-center vw-100 vh-100 bg-light screnLoader" id="pageLoading">
+    <div class="spinner-grow" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <div id="app">
+
+    <!-- Верхняя панель -->
+    <header class="navbar navbar-dark bg-dark px-4 shadow fixed-top">
+      <a class="navbar-brand" href="#">UniWork&nbsp;
+        <i class="fa fa-graduation-cap fa-fw fa-lg" aria-hidden="true"></i></a>
+
+      <button class="btn text-light px-0 d-none" type="button" @click="showMenu = !showMenu">
+        <i class="fa fa-bars fa-fw fa-lg" title="Меню" aria-hidden="true"></i>
+      </button>
+
+      <div class="dropdown ml-auto">
+        <button class="btn btn-link text-light dropdown-toggle text-light" type="button" id="dropdownMenuButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="d-none d-sm-inline">{{userName}}</div>
+          <i class="fa fa-user fa-fw fa-lg d-inline d-sm-none" title="Пользоваетель" aria-hidden="true"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right shadow bg-dark p-0" aria-labelledby="dropdownMenuButton">
+          <router-link to="/empcompany/usettings" class="dropdown-item text-light py-2" type="button">Настройки</router-link>
+          <div class="dropdown-divider m-0"></div>
+          <button class="dropdown-item text-light py-2" type="button" @click="logout">Выход</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Панель контента -->
+    <div class="vh-100 vw-100 m-0 content-block">
+      <!-- Панель навигации -->
+      <nav class="menu bg-dark shadow show-menu" v-bind:class="{'show-menu': showMenu}">
+        <div class="btn-group-vertical w-100 mx-0" @click="showMenu = false">
+          <router-link to="/empcompany/profession" type="button" class="btn btn-dark text-left py-3">
+            Професии
+            <i class="fa fa-address-card fa-fw fa-lg float-right mt-2" title="Професии" aria-hidden="true"></i>
+          </router-link>
+          <router-link to="/empcompany/position" type="button" class="btn btn-dark text-left py-3">
+            Должности
+            <i class="fa fa-id-card fa-fw fa-lg float-right mt-2" title="Должности" aria-hidden="true"></i>
+          </router-link>
+          <router-link to="/empcompany/university" type="button" class="btn btn-dark text-left py-3">
+            Университеты
+            <i class="fa fa-university fa-fw fa-lg float-right mt-2" title="Университеты" aria-hidden="true"></i>
+          </router-link>
+          <router-link to="/empcompany/eduprogram" type="button" class="btn btn-dark text-left py-3">
+            Учебные программы
+            <i class="fa fa-graduation-cap fa-fw fa-lg float-right mt-2" title="Учебные программы" aria-hidden="true"></i>
+          </router-link>
+        </div>
+      </nav>
+
+      <!-- Панель данных -->
+      <main class="main h-100 px-0 pb-3" style="margin-left:225px" v-bind:class="{'hide-main': showMenu}">
+        <router-view></router-view>
+      </main>
+
+    </div>
+    <!-- Панель вывода сообщений -->
+    <div class="alert message" role="alert"
+      v-bind:class="{'alert-danger': message.err, 'alert-success': !message.err, 'message-show': message.text != ''}">
+      {{message.text}}
+      <button type="button" class="btn close" @click="message.text=''">
+        &times
+      </button>
+    </div>
+
+  </div>
+
+  <script src="/js/usettings_component.js"></script>
+  <script src="/js/empcompany/eduprogram_component.js"></script>
+  <script src="/js/empcompany/university_component.js"></script>
+  <script src="/js/empcompany/profession_component.js"></script>
+  <script src="/js/empcompany/position_component.js"></script>
+  <script src="/js/empcompany/empcompany.js"></script>
+</body>
+</html>

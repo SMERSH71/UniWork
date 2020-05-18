@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniWork</title>
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div id="app" class="vh-100">
+    <!-- Верхняя панель -->
+    <header class="navbar navbar-dark bg-dark px-4 shadow fixed-top">
+      <a class="navbar-brand" href="#">UniWork&nbsp;
+        <i class="fa fa-graduation-cap fa-fw fa-lg" aria-hidden="true"></i></a>
+    </header>
+    <!-- Панель контента -->
+    <div class="bg-light pt-5 m-auto" v-bind:class="{'vh-100': state}">
+      <!-- Панель данных -->
+      <div class="d-flex justify-content-center pt-4 px-3 pb-3" v-bind:class="{'h-100': !state}">
+        <div class="card border-dark card-in" v-bind:class="{'card-log': state, 'card-reg': !state}">
+          <div class="card-header">
+            {{state?'Вход':'Регистрация'}}
+            <button type="button" class="btn p-0 m-0 btn-link float-right"
+              @click="state=!state">{{!state?'Вход':'Регистрация'}}</button>
+          </div>
+          <div class="card-body">
+
+            <div v-if="state">
+              <div class="form-group">
+                <label for="InputEmail">Email</label>
+                <input type="email" v-model="log.login" class="form-control" minlength="6" id="InputEmail">
+              </div>
+              <div class="form-group">
+                <label for="InputPassword">Пароль</label>
+                <input type="password" v-model="log.password" class="form-control" minlength="8" id="InputPassword">
+              </div>
+              <div class="form-group form-check d-none">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+              <button type="button" class="btn btn-primary btn-block" @click="login">Вход</button>
+            </div>
+
+            <div v-else>
+              <div class="form-group">
+                <label for="userName">Имя</label>
+                <input type="text" v-model="user.name" class="form-control" id="userName" aria-describedby="userNameHelp">
+                <small id="userNameHelp" class="form-text text-muted">
+                  Обязательное поле.
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="userSurname">Фамилия</label>
+                <input type="text" v-model="user.surname" class="form-control" id="userSurname" aria-describedby="userSurnameHelp">
+                <small id="userSurnameHelp"class="form-text text-muted">
+                  Обязательное поле.
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="userPatronymic">Отчество</label>
+                <input type="text" v-model="user.patronymic" class="form-control" id="userPatronymic">
+              </div>
+              <div class="form-group">
+                <label for="userOrganization">Организация</label>
+                <input type="text" v-model="user.organization" class="form-control" id="userOrganization"
+                  aria-describedby="userOrganizationHelp">
+                  <small id="userOrganizationHelp" class="form-text text-muted">
+                    Обязательное поле.
+                  </small>
+              </div>
+              <div class="form-group">
+                <label for="userPosition">Должность</label>
+                <input type="text" v-model="user.position" class="form-control" id="userPosition" aria-describedby="userPositionHelp">
+                <small id="userPositionHelp" class="form-text text-muted">
+                  Обязательное поле.
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="userEmail">Email</label>
+                <input type="email" v-model="user.login" class="form-control" minlength="6" id="userEmail" aria-describedby="userLoginHelp">
+                <small id="userLoginHelp" class="form-text text-muted">
+                  Обязательное поле.
+                </small>
+              </div>
+              <div class="form-group">
+                <label for="userPassword">Пароль</label>
+                <input type="password" v-model="user.password" class="form-control" @input="checkPass"
+                  v-bind:class="{'is-invalid': this.errPass.p1}" minlength="8" id="userPassword" aria-describedby="userPasswordHelp">
+                  <small id="userPasswordHelp" class="form-text text-muted">
+                    {{errPass.p1?errPass.p1:'Обязательное поле.'}}
+                  </small>
+              </div>
+              <div class="form-group">
+                <label for="userPassword2">Повторите пароль</label>
+                <input type="password" v-model="user.password2" class="form-control" @input="checkPass" v-bind:class="{'is-invalid': this.errPass.p2}" minlength="8" id="userPassword2" aria-describedby="userPassword2Help">
+                <small id="userPassword2Help" class="form-text text-muted">
+                  {{errPass.p2?errPass.p2:'Обязательное поле.'}}
+                </small>
+              </div>
+              <button type="button" class="btn btn-primary btn-block" @click="registration">Подать заявку</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Панель вывода сообщений -->
+    <div class="alert message" role="alert"
+      v-bind:class="{'alert-danger': message.err, 'alert-success': !message.err, 'message-show': message.text != ''}">
+      {{message.text}}
+      <button type="button" class="btn close" @click="message.text=''">
+        &times
+      </button>
+    </div>
+
+  </div>
+  <script src="/js/vue.js"></script>
+  <script src="/js/index.js"></script>
+</body>
+
+</html>

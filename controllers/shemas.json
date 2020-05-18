@@ -1,0 +1,264 @@
+{
+    "_comment": {
+        "type": "Тип переменной",
+        "length": "Длина переменной",
+        "isnull": "Может быть пустой",
+        "check": "Проверять или нет",
+        "valid": "Как проверять"
+    },
+    "user": {
+        "login": {
+            "type": "string",
+            "length": 128,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "password": {
+            "type": "string",
+            "length": 128,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "name": {
+            "type": "string",
+            "length": 64,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "surname": {
+            "type": "string",
+            "length": 64,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "patronymic": {
+            "type": "string",
+            "length": 64,
+            "isnull": true,
+            "check": true,
+            "valid": "<="
+        },
+        "organization": {
+            "type": "string",
+            "length": 128,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "position": {
+            "type": "string",
+            "length": 128,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "role": {
+            "type": "number",
+            "length": 1,
+            "isnull": true,
+            "check": true,
+            "valid": "="
+        },
+        "university": {
+            "type": "number",
+            "length": 16,
+            "isnull": true,
+            "check": true,
+            "valid": "<="
+        }
+    },
+    "university": {
+        "id": {
+            "type": "number",
+            "length": 16,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "full_name": {
+            "type": "string",
+            "length": 256,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "short_name": {
+            "type": "string",
+            "length": 16,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "url": {
+            "type": "string",
+            "length": 256,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "last_update": {
+            "type": "Date",
+            "length": 16,
+            "isnull": true,
+            "check": false,
+            "valid": " "
+        }
+    },
+    "eduprogram": {
+        "id": {
+            "type": "number",
+            "length": 16,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "id_university": {
+            "type": "number",
+            "length": 16,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "students": {
+            "type": "number",
+            "length": 16,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "code": {
+            "type": "string",
+            "length": 8,
+            "isnull": false,
+            "check": true,
+            "valid": "="
+        },
+        "name": {
+            "type": "string",
+            "length": 128,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "level": {
+            "type": "string",
+            "length": 64,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "form": {
+            "type": "string",
+            "length": 128,
+            "isnull": true,
+            "check": true,
+            "valid": "<="
+        },
+        "learning_term": {
+            "type": "string",
+            "length": 128,
+            "isnull": true,
+            "check": true,
+            "valid": "<="
+        },
+        "date_end": {
+            "type": "string",
+            "length": 16,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "language": {
+            "type": "string",
+            "length": 32,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        }
+    },
+    "profession": {
+        "kod": {
+            "type": "number",
+            "length": 5,
+            "isnull": false,
+            "check": true,
+            "valid": "="
+        },
+        "kch": {
+            "type": "number",
+            "length": 1,
+            "isnull": false,
+            "check": true,
+            "valid": "="
+        },
+        "name": {
+            "type": "string",
+            "length": 256,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "tarif": {
+            "type": "string",
+            "length": 16,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "etkc": {
+            "type": "number",
+            "length": 2,
+            "isnull": false,
+            "check": true,
+            "valid": "="
+        },
+        "okz": {
+            "type": "number",
+            "length": 4,
+            "isnull": false,
+            "check": true,
+            "valid": "="
+        }
+    },
+    "position": {
+        "kod": {
+            "type": "number",
+            "length": 5,
+            "isnull": false,
+            "check": true,
+            "valid": "="
+        },
+        "kch": {
+            "type": "number",
+            "length": 1,
+            "isnull": false,
+            "check": true,
+            "valid": "="
+        },
+        "name": {
+            "type": "string",
+            "length": 256,
+            "isnull": false,
+            "check": true,
+            "valid": "<="
+        },
+        "category": {
+            "type": "number",
+            "length": 1,
+            "isnull": false,
+            "check": true,
+            "valid": "="
+        },
+        "okz": {
+            "type": "number",
+            "length": 4,
+            "isnull": false,
+            "check": true,
+            "valid": "="
+        }
+    }
+}
