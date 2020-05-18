@@ -21,6 +21,7 @@ const PageController = require("../controllers/page.controller")
   .get("/empjob", PageController.pager)
   /* [+] Страница работодателя */
   .get("/empjob/*", PageController.pager)`
+  
   pageRouter
   /* [+] Страница входа */
   .get("/", PageController.startPage)
@@ -40,7 +41,5 @@ const PageController = require("../controllers/page.controller")
   .get("/empcompany", PageController.companyPage)
   /* [+] Страница работодателя */
   .get("/empcompany/*", PageController.companyPage)
-
-  let h = ``
 
 module.exports = router.use('/', pageRouter)

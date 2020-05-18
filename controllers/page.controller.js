@@ -25,7 +25,7 @@ class PageController {
 
   /* [+] Страница входа */
   startPage(req, res) {
-    return res.sendFile(path + '/private/index.html')
+    return res.sendFile(path + './private/index.html')
   }
   /* [+] Страница администратора */
   adminPage(req, res) {

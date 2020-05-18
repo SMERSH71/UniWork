@@ -63,7 +63,6 @@ class AuthController {
 
   /* [+] Авторизовать пользователя */
   async logout(req, res) {
-      console.log("out")
       AuthService.delSessionID(req.session.uid)
       req.session.destroy(req.session.id)
       res.clearCookie('connect.sid', {path: '/'})
